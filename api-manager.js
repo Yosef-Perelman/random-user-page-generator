@@ -1,26 +1,30 @@
+async function getResponseFromAPI(url) {
+  try {
+    const response = await fetch(url);
+    const jsonResponse = await response.json();
+    return jsonResponse;
+  } catch (e) {
+    return "Failed to fetch the data from the API.";
+  }
+}
+
+async function getMeatIpsumFromAPI() {
+  return await getResponseFromAPI(`https://baconipsum.com/api/?type=all-meat`);
+}
+
 async function getUsersFromAPI() {
-  let users = await fetch(`https://randomuser.me/api/?results=7`);
-  users = await users.json();
-  return users;
+  return await getResponseFromAPI(`https://randomuser.me/api/?results=7`);
 }
 
 async function getKanyeQuoteFromAPI() {
-  let quote = await fetch(`https://api.kanye.rest`);
-  quote = await quote.json();
-  return quote;
+  return await getResponseFromAPI(`https://api.kanye.rest`);
 }
 
 async function getPokeFromAPI() {
   const randomId = Math.floor(Math.random() * 1025) + 1;
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
-  const pokemon = await response.json();
-  return pokemon;
+  return await getResponseFromAPI(
+    `https://pokeapi.co/api/v2/pokemon/${randomId}`,
+  );
 }
 
-async function getMeatIpsumFromAPI() {
-  const response = await fetch(`https://baconipsum.com/api/?type=all-meat`);
-  const meatIpsum = await response.json();
-  return meatIpsum;
-}
-
-getMeatIpsumFromAPI().then((r) => console.log(r));
+getPokeFromAPI().then((r) => console.log(r));
