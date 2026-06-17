@@ -10,7 +10,7 @@ async function getResponseFromAPI(url) {
 
 async function getMeatIpsumFromAPI() {
   return await getResponseFromAPI(
-    `https://baconipsum.com/api/?type=all-meat&paras=2`,
+    `https://baconipsum.com/api/?type=all-meat&paras=1`,
   );
 }
 
