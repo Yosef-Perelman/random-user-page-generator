@@ -25,16 +25,16 @@ function processUser(user) {
   return { firstName, lastName };
 }
 
-function processUserFreinds(freinds) {
-  return freinds.map((person) => `${person.name.first} ${person.name.last}`);
+function processUserFriends(friends) {
+  return friends.map((person) => `${person.name.first} ${person.name.last}`);
 }
 
 async function processUsersList() {
   const users = await getUsersList();
   const user = processUser(users.results[0]);
-  const freinds = users.results.slice(1);
-  const freindsNames = processUserFreinds(freinds);
-  return [user, freindsNames];
+  const friends = users.results.slice(1);
+  const friendsNames = processUserFriends(friends);
+  return [user, friendsNames];
 }
 
 async function processPokemon() {
@@ -45,9 +45,9 @@ async function processPokemon() {
 }
 
 export default async function createNewUser() {
-  const [user, freinds] = await processUsersList();
+  const [user, friends] = await processUsersList();
   const pokemon = await processPokemon();
   const ipsum = await getIpsum();
   const quote = await getQuote();
-  return { user, freinds, pokemon, ipsum, quote };
+  return { user, friends, pokemon, ipsum, quote };
 }

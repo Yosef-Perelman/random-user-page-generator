@@ -14,22 +14,53 @@ body {
 header {
   border: solid;
   height: 200px;
+  display: flex;
+  width: 100%;
+}
+
+header > .details {
+  flex-grow: 4;
+  border: solid;
+}
+
+header > img {
+  flex-grow: 1;
+  border: solid;
 }
 
 main {
   display: flex;
   flex-grow: 1;
+  width: 100%;
 }
 
 main > .data {
+  flex-grow: 3;
   display: flex;
   flex-direction: column;
 }
 
+main > .friends {
+  flex-grow: 1;
+}
+
+main > .data > * {
+  border: solid;
+  flex-grow: 1;
+}
+
 footer {
   border: solid;
-  height: 100px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+footer > button {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid;
+  background-color: aquamarine;
 }
