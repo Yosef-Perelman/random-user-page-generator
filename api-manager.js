@@ -27,4 +27,22 @@ async function getPokeFromAPI() {
   );
 }
 
-getPokeFromAPI().then((r) => console.log(r));
+export default function getFromAPI(choose) {
+  switch (choose) {
+    case "pokemon": {
+      return getPokeFromAPI();
+    }
+    case "kanyeQuote": {
+      return getKanyeQuoteFromAPI();
+    }
+    case "meatIpsum": {
+      return getMeatIpsumFromAPI();
+    }
+    case "users": {
+      return getUsersFromAPI();
+    }
+
+    default:
+      break;
+  }
+}
