@@ -81,6 +81,7 @@ main > .data {
   flex-direction: column;
   width: 75%;
   padding: 20px;
+  padding-top: 0;
 }
 
 main > .friends {
@@ -113,7 +114,8 @@ main > .data > * {
   flex-grow: 1;
   padding-left: 30px;
   padding-right: 30px;
-  padding-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 5px;
   border-bottom: 2px solid #ddd;
 }
 
@@ -136,7 +138,7 @@ main > .data > *:last-child {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   gap: 20px;
 }
 
@@ -167,6 +169,7 @@ footer {
 }
 
 footer > button {
+  cursor: pointer;
   color: white;
   background-color: black;
   padding: 10px;

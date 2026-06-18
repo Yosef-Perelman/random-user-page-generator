@@ -40,5 +40,5 @@ async function generateUser() {
   app.style.display = "flex";
 }
 
-// generateButton.addEventListener("click", generateUser);
-generateUser();
+document.addEventListener("DOMContentLoaded", generateUser);
+generateButton.addEventListener("click", generateUser);
