@@ -4,6 +4,8 @@ import createNewUser from "./user.js";
 const loading = document.getElementById("loading");
 const app = document.getElementById("app");
 const generateButton = document.getElementById("generateButton");
+const saveUserPageButton = document.getElementById("saveUserPageButton");
+const loadUserPageButton = document.getElementById("loadUserPageButton");
 
 function mockUser() {
   const user = {
@@ -30,12 +32,18 @@ function mockUser() {
   return user;
 }
 
+let currentUser = null;
+
 async function generateUser() {
   try {
     const userProperties = await createNewUser();
     renderUserPage(userProperties);
 
-    //   renderUserPage(mockUser());
+    // const userProperties = mockUser();
+
+    currentUser = userProperties;
+
+    renderUserPage(currentUser);
 
     loading.style.display = "none";
     app.style.display = "flex";
@@ -44,5 +52,20 @@ async function generateUser() {
   }
 }
 
+function saveUserPage() {
+  if (currentUser) {
+    localStorage.setItem("savedUser", JSON.stringify(currentUser));
+  }
+}
+
+function loadUserPage() {
+  const saved = localStorage.getItem("savedUser");
+  if (saved) {
+    renderUserPage(JSON.parse(saved));
+  }
+}
+
 document.addEventListener("DOMContentLoaded", generateUser);
 generateButton.addEventListener("click", generateUser);
+saveUserPageButton.addEventListener("click", saveUserPage);
+loadUserPageButton.addEventListener("click", loadUserPage);
