@@ -2,6 +2,32 @@ const profilePictureElement = document.getElementById("profilePicture");
 const nameElement = document.getElementById("name");
 const addressElement = document.getElementById("address");
 const friendsListElement = document.getElementById("friendsList");
+const quoteText = document.getElementById("quoteText");
+const pokePic = document.getElementById("pokePic");
+const pokeName = document.getElementById("pokeName");
+const aboutText = document.getElementById("aboutText");
+
+function renderProfilePicture(picPath) {
+  profilePictureElement.src = picPath;
+}
+
+function renderDetails(name, address) {
+  nameElement.textContent = name;
+  addressElement.textContent = address;
+}
+
+function renderQuote(quote) {
+  quoteText.textContent = quote;
+}
+
+function renderPokemon(pokemon) {
+  pokePic.src = pokemon.pic;
+  pokeName.textContent = pokemon.name;
+}
+
+function renderAbout(text) {
+  aboutText.textContent = text;
+}
 
 function generateFriendsList(friends) {
   const liList = [];
@@ -20,17 +46,11 @@ function renderFriendsList(friends) {
   }
 }
 
-function renderProfilePicture(picPath) {
-  profilePictureElement.src = picPath;
-}
-
-function renderDetails(name, address) {
-  nameElement.textContent = name;
-  addressElement.textContent = address;
-}
-
 export default function renderUserPage(userData) {
   renderProfilePicture(userData.user.pic);
   renderDetails(userData.user.name, userData.user.address);
   renderFriendsList(userData.friends);
+  renderQuote(userData.quote);
+  renderPokemon(userData.pokemon);
+  renderAbout(userData.ipsum);
 }

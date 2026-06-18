@@ -9,18 +9,20 @@ async function getPokemon() {
 }
 
 async function getIpsum() {
-  return await getFromAPI("meatIpsum");
+  const ipsum = await getFromAPI("meatIpsum");
+  return ipsum[0];
 }
 
 async function getQuote() {
-  return await getFromAPI("kanyeQuote");
+  const quote = await getFromAPI("kanyeQuote");
+  return quote.quote;
 }
 
 function processUser(user) {
   const name = `${user.name.first} ${user.name.last}`;
-  const adrress = `${user.location.city}, ${user.location.country}`;
+  const address = `${user.location.city}, ${user.location.country}`;
   const pic = user.picture.large;
-  return { name, adrress, pic };
+  return { name, address, pic };
 }
 
 function processUserFriends(friends) {
@@ -49,3 +51,7 @@ export default async function createNewUser() {
   const quote = await getQuote();
   return { user, friends, pokemon, ipsum, quote };
 }
+
+createNewUser().then((r) => {
+  console.log(r);
+});

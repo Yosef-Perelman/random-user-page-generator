@@ -3,44 +3,35 @@ import createNewUser from "./user.js";
 
 const generateButton = document.getElementById("generateButton");
 
-function createFriendsList() {
-  // todo replace with data from the api
-  const friendsList = [
-    "Nigoslav Sichenko",
-    "Níger da Mata",
-    "Nóris Peixoto",
-    "Robert Holmes",
-    "Jesus Tucker",
-  ];
-  renderFriendsList(friendsList);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  createFriendsList();
-});
-
 function mockUser() {
   const user = {
     user: {
-      name: "Yosef Perelman",
-      address: "Jerusalem, Israel",
-      pic: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/342.png",
+      name: "Vojin Silić",
+      address: "Novi Kneževac, Serbia",
+      pic: "https://randomuser.me/api/portraits/men/8.jpg",
     },
     friends: [
-      "Nigoslav Sichenko",
-      "Níger da Mata",
-      "Nóris Peixoto",
-      "Robert Holmes",
-      "Jesus Tucker",
+      "Audrey Edwards",
+      "Jelena Borojević",
+      "Elsa Lakso",
+      "Tomas Domínguez",
+      "Leonel Holguín",
     ],
+    pokemon: {
+      name: "sceptile",
+      pic: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/254.png",
+    },
+    ipsum:
+      "Rump ribeye kielbasa, chislic filet mignon boudin pork pastrami capicola.  Pork belly beef pork chop chislic ham hock beef ribs fatback spare ribs bresaola.  Picanha venison tail fatback spare ribs frankfurter meatloaf boudin ground round short loin flank.  Tongue burgdoggen buffalo t-bone, pork chicken leberkas filet mignon ribeye beef ribs ham pig pastrami swine.  Turducken kevin cow tri-tip doner ham fatback.",
+    quote: "Speak God's truth to power",
   };
   return user;
 }
 
-function generateUser() {
-  //   const userProperties = createNewUser();
-  //   renderUserPage(userProperties);
-  renderUserPage(mockUser());
+async function generateUser() {
+  const userProperties = await createNewUser();
+  renderUserPage(userProperties);
+  //   renderUserPage(mockUser());
 }
 
 generateButton.addEventListener("click", generateUser());
