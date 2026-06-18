@@ -31,13 +31,17 @@ function mockUser() {
 }
 
 async function generateUser() {
-  const userProperties = await createNewUser();
-  renderUserPage(userProperties);
+  try {
+    const userProperties = await createNewUser();
+    renderUserPage(userProperties);
 
-  //   renderUserPage(mockUser());
+    //   renderUserPage(mockUser());
 
-  loading.style.display = "none";
-  app.style.display = "flex";
+    loading.style.display = "none";
+    app.style.display = "flex";
+  } catch (e) {
+    loading.textContent = e.message;
+  }
 }
 
 document.addEventListener("DOMContentLoaded", generateUser);

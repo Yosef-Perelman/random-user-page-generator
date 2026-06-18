@@ -51,7 +51,3 @@ export default async function createNewUser() {
   const quote = await getQuote();
   return { user, friends, pokemon, ipsum, quote };
 }
-
-createNewUser().then((r) => {
-  console.log(r);
-});

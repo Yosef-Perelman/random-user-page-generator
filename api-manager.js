@@ -4,7 +4,7 @@ async function getResponseFromAPI(url) {
     const jsonResponse = await response.json();
     return jsonResponse;
   } catch (e) {
-    return "Failed to fetch the data from the API.";
+    throw new Error(`Failed to fetch the data from ${url}.`);
   }
 }
 
