@@ -22,7 +22,9 @@ function renderQuote(quote) {
 
 function renderPokemon(pokemon) {
   pokePic.src = pokemon.pic;
-  pokeName.textContent = `Favorite Pokemon: ${pokemon.name}`;
+  let name = pokemon.name;
+  const capitalized = name.charAt(0).toUpperCase() + name.slice(1);
+  pokeName.textContent = `Favorite Pokemon: ${capitalized}`;
 }
 
 function renderAbout(text) {
