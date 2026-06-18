@@ -18,9 +18,13 @@
     </header>
     <main>
       <div class="data">
-        <div class="quote">Keep squares out yo circle</div>
+        <div class="quoteSection">
+          <div class="quoteTitle">Favorite quote:</div>
+          <div>squares out yo circle</div>
+        </div>
         <div class="pokemon">
           <img
+            id="pokePic"
             src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/342.png"
             alt="image of pokemon"
           />
@@ -42,7 +46,10 @@
           tri-tip pork prosciutto swine.'
         </div>
       </div>
-      <div class="friends"><ul class="friendsList" id="friendsList"></ul></div>
+      <div class="friends">
+        <div class="friendsTitle">Friends</div>
+        <ul class="friendsList" id="friendsList"></ul>
+      </div>
     </main>
     <footer><button id="generateButton">Generate User</button></footer>
     <script type="module" src="app.js"></script>

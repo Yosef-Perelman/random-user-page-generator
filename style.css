@@ -66,11 +66,35 @@ main > .data {
 
 main > .friends {
   width: 25%;
+  background-color: rgb(234, 242, 240);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+main > .friends > .friendsTitle {
+  font-size: 30px;
+  font-weight: 700;
+  border-bottom: solid;
+  margin-bottom: 20px;
+  padding-top: 30px;
+}
+
+main > .friends > .friendsList {
+  list-style: none;
+}
+
+main > .friends > .friendsList > li {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ddd;
+  font-size: 28px;
+  font-weight: 400;
 }
 
 main > .data > * {
-  border: solid 1px;
   flex-grow: 1;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
 }
 
 .pokemon {

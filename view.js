@@ -6,7 +6,7 @@ const friendsListElement = document.getElementById("friendsList");
 function generateFriendsList(friends) {
   const liList = [];
   for (const name of friends) {
-    const element = document.createElement("div");
+    const element = document.createElement("li");
     element.textContent = name;
     liList.push(element);
   }
