@@ -1,6 +1,8 @@
 import renderUserPage from "./view.js";
 import createNewUser from "./user.js";
 
+const loading = document.getElementById("loading");
+const app = document.getElementById("app");
 const generateButton = document.getElementById("generateButton");
 
 function mockUser() {
@@ -31,7 +33,12 @@ function mockUser() {
 async function generateUser() {
   const userProperties = await createNewUser();
   renderUserPage(userProperties);
+
   //   renderUserPage(mockUser());
+
+  loading.style.display = "none";
+  app.style.display = "flex";
 }
 
-generateButton.addEventListener("click", generateUser());
+// generateButton.addEventListener("click", generateUser);
+generateUser();

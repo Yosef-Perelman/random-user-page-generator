@@ -4,11 +4,30 @@
   box-sizing: border-box;
 }
 
+.loading {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+}
+
+.app {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
 body {
   height: 100vh;
 
   display: flex;
   flex-direction: column;
+
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 header {
@@ -26,7 +45,6 @@ header > .profilePic {
 }
 
 header > .profilePic > img {
-  background-color: white;
   border-radius: 50%;
   object-fit: cover;
   width: 180px;
@@ -61,7 +79,8 @@ main {
 main > .data {
   display: flex;
   flex-direction: column;
-  max-width: 75%;
+  width: 75%;
+  padding: 20px;
 }
 
 main > .friends {
@@ -95,25 +114,63 @@ main > .data > * {
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 15px;
+  border-bottom: 2px solid #ddd;
 }
 
-.pokemon {
+main > .data > *:last-child {
+  border-bottom: none;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.quoteText {
+  font-size: 25px;
+}
+
+.pokemonData {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+
+.pokePic {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 180px;
+  height: 180px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: orange;
+}
+
+.pokeName {
+  font-size: 28px;
+  font-weight: 60;
+}
+
+.aboutText {
+  font-size: 20px;
 }
 
 footer {
-  border: solid;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(84, 127, 181);
 }
 
 footer > button {
+  color: white;
+  background-color: black;
   padding: 10px;
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 2px solid;
-  background-color: aquamarine;
 }

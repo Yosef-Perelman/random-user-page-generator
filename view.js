@@ -17,12 +17,12 @@ function renderDetails(name, address) {
 }
 
 function renderQuote(quote) {
-  quoteText.textContent = quote;
+  quoteText.textContent = `"${quote}"`;
 }
 
 function renderPokemon(pokemon) {
   pokePic.src = pokemon.pic;
-  pokeName.textContent = pokemon.name;
+  pokeName.textContent = `Favorite Pokemon: ${pokemon.name}`;
 }
 
 function renderAbout(text) {
@@ -40,6 +40,7 @@ function generateFriendsList(friends) {
 }
 
 function renderFriendsList(friends) {
+  friendsListElement.innerHTML = "";
   const friendsElements = generateFriendsList(friends);
   for (const e of friendsElements) {
     friendsListElement.appendChild(e);

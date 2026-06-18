@@ -7,35 +7,44 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <div class="profilePic">
-        <img id="profilePicture" src="" alt="Profile Picture" />
-      </div>
-      <div class="details">
-        <div id="name" class="name"></div>
-        <div id="address" class="address"></div>
-      </div>
-    </header>
-    <main>
-      <div class="data">
-        <div class="quoteSection">
-          <div class="quoteTitle">Favorite quote:</div>
-          <div id="quoteText"></div>
+    <div id="loading" class="loading">
+      <div class="loadingText">Loading...</div>
+    </div>
+    <div id="app" class="app">
+      <header>
+        <div class="profilePic">
+          <img id="profilePicture" src="" alt="Profile Picture" />
         </div>
-        <div class="pokemon">
-          <img id="pokePic" src="" alt="image of pokemon" />
-          <div class="pokeName" id="pokeName"></div>
+        <div class="details">
+          <div id="name" class="name"></div>
+          <div id="address" class="address"></div>
         </div>
-        <div class="about">
-          <div id="aboutText" class="aboutText"></div>
+      </header>
+      <main>
+        <div class="data">
+          <div class="quoteSection">
+            <div class="quoteTitle title">Favorite quote</div>
+            <div id="quoteText" class="quoteText"></div>
+          </div>
+          <div class="pokemon">
+            <div class="pokemonTitle title">My Pokemon</div>
+            <div class="pokemonData">
+              <img id="pokePic" class="pokePic" src="" alt="image of pokemon" />
+              <div class="pokeName" id="pokeName"></div>
+            </div>
+          </div>
+          <div class="about">
+            <div class="aboutTitle title">About Me</div>
+            <div id="aboutText" class="aboutText"></div>
+          </div>
         </div>
-      </div>
-      <div class="friends">
-        <div class="friendsTitle">Friends</div>
-        <ul class="friendsList" id="friendsList"></ul>
-      </div>
-    </main>
-    <footer><button id="generateButton">Generate User</button></footer>
+        <div class="friends">
+          <div class="friendsTitle">Friends</div>
+          <ul class="friendsList" id="friendsList"></ul>
+        </div>
+      </main>
+      <footer><button id="generateButton">Generate User</button></footer>
+    </div>
     <script type="module" src="app.js"></script>
   </body>
 </html>
