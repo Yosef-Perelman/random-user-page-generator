@@ -6,6 +6,7 @@ const app = document.getElementById("app");
 const generateButton = document.getElementById("generateButton");
 const saveUserPageButton = document.getElementById("saveUserPageButton");
 const loadUserPageButton = document.getElementById("loadUserPageButton");
+const savedUsersSelect = document.getElementById("savedUsersSelect");
 
 function mockUser() {
   const user = {
@@ -52,20 +53,42 @@ async function generateUser() {
   }
 }
 
+function getSavedUsers() {
+  return JSON.parse(localStorage.getItem("savedUsers") ?? "{}");
+}
+
+function updateDropdown() {
+  const savedUsers = getSavedUsers();
+  savedUsersSelect.innerHTML = '<option value="">-- Select saved user --</option>';
+  for (const name of Object.keys(savedUsers)) {
+    const option = document.createElement("option");
+    option.value = name;
+    option.textContent = name;
+    savedUsersSelect.appendChild(option);
+  }
+}
+
 function saveUserPage() {
   if (currentUser) {
-    localStorage.setItem("savedUser", JSON.stringify(currentUser));
+    const savedUsers = getSavedUsers();
+    savedUsers[currentUser.user.name] = currentUser;
+    localStorage.setItem("savedUsers", JSON.stringify(savedUsers));
+    updateDropdown();
   }
 }
 
 function loadUserPage() {
-  const saved = localStorage.getItem("savedUser");
-  if (saved) {
-    renderUserPage(JSON.parse(saved));
+  const name = savedUsersSelect.value;
+  const savedUsers = getSavedUsers();
+  if (savedUsers[name]) {
+    renderUserPage(savedUsers[name]);
   }
 }
 
-document.addEventListener("DOMContentLoaded", generateUser);
+document.addEventListener("DOMContentLoaded", () => {
+  generateUser();
+  updateDropdown();
+});
 generateButton.addEventListener("click", generateUser);
 saveUserPageButton.addEventListener("click", saveUserPage);
 loadUserPageButton.addEventListener("click", loadUserPage);
