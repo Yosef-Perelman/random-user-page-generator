@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function mockUser() {
   const user = {
     user: {
+      name: "Yosef Perelman",
+      address: "Jerusalem, Israel",
       pic: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/342.png",
     },
     friends: [

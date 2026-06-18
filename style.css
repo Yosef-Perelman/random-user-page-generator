@@ -12,29 +12,44 @@ body {
 }
 
 header {
-  border: solid;
   height: 200px;
   display: flex;
   width: 100%;
+  background-color: rgb(84, 127, 181);
 }
 
 header > .profilePic {
-  width: 20%;
-  border: solid;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header > .profilePic > img {
+  background-color: white;
   border-radius: 50%;
   object-fit: cover;
-  width: 100px;
-  height: 100px;
+  width: 180px;
+  height: 180px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 4px solid white;
 }
 
 header > .details {
   width: 80%;
-  border: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  color: white;
+}
+
+header > .details > .name {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+header > .details > .address {
+  font-size: 30px;
 }
 
 main {
@@ -54,7 +69,7 @@ main > .friends {
 }
 
 main > .data > * {
-  border: solid;
+  border: solid 1px;
   flex-grow: 1;
 }
 
