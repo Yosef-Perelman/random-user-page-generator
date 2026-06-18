@@ -23,6 +23,15 @@ header > .profilePic {
   border: solid;
 }
 
+header > .profilePic > img {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 4px solid white;
+}
+
 header > .details {
   width: 80%;
   border: solid;

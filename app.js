@@ -1,23 +1,44 @@
-import { generateFriendsList } from "./view.js";
+import renderUserPage from "./view.js";
+import createNewUser from "./user.js";
 
-const friendsListElement = document.getElementById("friendsList");
+const generateButton = document.getElementById("generateButton");
 
 function createFriendsList() {
+  // todo replace with data from the api
   const friendsList = [
     "Nigoslav Sichenko",
     "Níger da Mata",
     "Nóris Peixoto",
-    "ماهان نكو نظر",
     "Robert Holmes",
     "Jesus Tucker",
   ];
-  const friendsElements = generateFriendsList(friendsList);
-  for (const e of friendsElements) {
-    friendsListElement.appendChild(e);
-  }
+  renderFriendsList(friendsList);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  debugger;
   createFriendsList();
 });
+
+function mockUser() {
+  const user = {
+    user: {
+      pic: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/342.png",
+    },
+    friends: [
+      "Nigoslav Sichenko",
+      "Níger da Mata",
+      "Nóris Peixoto",
+      "Robert Holmes",
+      "Jesus Tucker",
+    ],
+  };
+  return user;
+}
+
+function generateUser() {
+  //   const userProperties = createNewUser();
+  //   renderUserPage(userProperties);
+  renderUserPage(mockUser());
+}
+
+generateButton.addEventListener("click", generateUser());

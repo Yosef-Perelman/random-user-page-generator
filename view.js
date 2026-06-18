@@ -1,3 +1,6 @@
+const friendsListElement = document.getElementById("friendsList");
+const profilePictureElement = document.getElementById("profilePicture");
+
 function generateFriendsList(friends) {
   const liList = [];
   for (const name of friends) {
@@ -8,4 +11,18 @@ function generateFriendsList(friends) {
   return liList;
 }
 
-export { generateFriendsList };
+function renderFriendsList(friends) {
+  const friendsElements = generateFriendsList(friends);
+  for (const e of friendsElements) {
+    friendsListElement.appendChild(e);
+  }
+}
+
+function renderProfilePicture(picPath) {
+  profilePictureElement.src = picPath;
+}
+
+export default function renderUserPage(userData) {
+  renderProfilePicture(userData.user.pic);
+  renderFriendsList(userData.friends);
+}
