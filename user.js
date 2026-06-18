@@ -17,12 +17,10 @@ async function getQuote() {
 }
 
 function processUser(user) {
-  const firstName = user.name.first;
-  const lastName = user.name.last;
-  const city = user.location.city;
-  const country = user.location.country;
+  const name = `${user.name.first} ${user.name.last}`;
+  const adrress = `${user.location.city}, ${user.location.country}`;
   const pic = user.picture.large;
-  return { firstName, lastName };
+  return { name, adrress, pic };
 }
 
 function processUserFriends(friends) {
