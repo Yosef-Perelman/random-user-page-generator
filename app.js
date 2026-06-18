@@ -33,33 +33,37 @@ function mockUser() {
   return user;
 }
 
-let currentUser = null;
+let userProperties = null;
 
 async function generateUser() {
   try {
-    const userProperties = await createNewUser();
-    renderUserPage(userProperties);
+    userProperties = await createNewUser();
 
+    // for debugging
     // const userProperties = mockUser();
 
-    currentUser = userProperties;
-
-    renderUserPage(currentUser);
+    renderUserPage(userProperties);
 
     loading.style.display = "none";
     app.style.display = "flex";
   } catch (e) {
+    app.style.display = "none";
+    loading.style.display = "flex";
     loading.textContent = e.message;
   }
 }
 
 function getSavedUsers() {
-  return JSON.parse(localStorage.getItem("savedUsers") ?? "{}");
+  try {
+    return JSON.parse(localStorage.getItem("savedUsers") ?? "{}");
+  } catch (e) {
+    return {};
+  }
 }
 
 function updateDropdown() {
   const savedUsers = getSavedUsers();
-  savedUsersSelect.innerHTML = '<option value="">-- Select saved user --</option>';
+  savedUsersSelect.innerHTML = '<option value="">Select User To Load</option>';
   for (const name of Object.keys(savedUsers)) {
     const option = document.createElement("option");
     option.value = name;
@@ -69,9 +73,9 @@ function updateDropdown() {
 }
 
 function saveUserPage() {
-  if (currentUser) {
+  if (userProperties) {
     const savedUsers = getSavedUsers();
-    savedUsers[currentUser.user.name] = currentUser;
+    savedUsers[userProperties.user.name] = userProperties;
     localStorage.setItem("savedUsers", JSON.stringify(savedUsers));
     updateDropdown();
   }
@@ -89,6 +93,13 @@ document.addEventListener("DOMContentLoaded", () => {
   generateUser();
   updateDropdown();
 });
-generateButton.addEventListener("click", generateUser);
+
+generateButton.addEventListener("click", () => {
+  loading.style.display = "flex";
+  app.style.display = "none";
+  generateUser();
+});
+
 saveUserPageButton.addEventListener("click", saveUserPage);
+
 loadUserPageButton.addEventListener("click", loadUserPage);

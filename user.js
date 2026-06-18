@@ -40,7 +40,7 @@ async function processUsersList() {
 async function processPokemon() {
   const pokemon = await getPokemon();
   const name = pokemon.name;
-  const pic = pokemon.sprites.front_shiny;
+  const pic = pokemon.sprites.front_shiny ?? pokemon.sprites.front_default;
   return { name, pic };
 }
 

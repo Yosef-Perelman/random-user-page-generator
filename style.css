@@ -151,7 +151,7 @@ main > .data > *:last-child {
 
 .pokeName {
   font-size: 28px;
-  font-weight: 60;
+  font-weight: 100;
 }
 
 .aboutText {
@@ -164,15 +164,16 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: rgb(84, 127, 181);
-  gap: 10px;
+  gap: 15px;
 }
 
-footer > button {
+footer > * {
+  width: 300px;
   cursor: pointer;
   color: white;
   background-color: black;
   padding: 15px;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 10px;
   border: 2px solid;
 }
